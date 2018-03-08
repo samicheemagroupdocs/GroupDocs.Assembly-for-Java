@@ -7,7 +7,7 @@ public class MainClass {
 
 		// region Generating Bubble Chart
 		// Generate bubble chart report in document processing format
-		// GenerateReport.generateBubbleChart("document");
+		 //GenerateReport.generateBubbleChart("document");
 		// Generate bubble chart report in spreadsheet format
 		// GenerateReport.generateBubbleChart("spreadsheet");
 		// Generate bubble chart report in presentation format
@@ -279,6 +279,26 @@ public class MainClass {
 
 		// Html Reports
 		//GenerateReport.importingSpreadsheetIntoHtml("/Contracts Data.xlsx","/Html Templates/Importing Spreadsheet into HTML Document.html");
+
+		// Ability to remove selective chart series
+		// GenerateReport.removeSelectiveChartSeries();
+
+		// Dynamic Chart Axis Title
+		//GenerateReport.dynamicChartAxisTitle();
+
+		//Dynamic Chart Axis Title in Presentation Document
+		//GenerateReport.dynamicChartAxisTitlePPt();
+
+		//Dynamic Chart Axis Title in Spreadsheet Document
+		//GenerateReport.dynamicChartAxisTitleSpreadSheet();
+
+		//Dynamic Chart Axis Title in Presentation Document
+		//GenerateReport.dynamicChartAxisTitleEmail();
+
+		// Dynamic Color in wordpressing document
+		// GenerateReport.dynamicColor();
+
+
 	}
 
 }

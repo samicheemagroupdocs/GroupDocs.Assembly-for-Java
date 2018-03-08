@@ -1443,4 +1443,98 @@ public class GenerateReport {
 		// ExEnd:generateHtmlReport
 	}
 
+    public static void removeSelectiveChartSeries() {
+		// ExStart:removeSelectiveChartSeries
+		String srcDocument = "/Word Templates/Chart with Filtering, Grouping, and Ordering_RemoveIf.docx";
+		String docReport = "/Word Reports/Chart with Filtering, Grouping, and Ordering_report_RemoveIf.docx";
+		try {
+			DocumentAssembler assembler = new DocumentAssembler();
+			//Set mode 1 or 2 to remove 1st or 2nd Quarter data
+			int mode = 1;
+			assembler.assembleDocument(CommonUtilities.getDataPath(srcDocument),
+					CommonUtilities.getOutPath(docReport), new Object[]{new DataStorage(), mode}, new String[]{"orders", "mode"});
+		} catch (Exception exp) {
+			System.out.println("Exception: " + exp.getMessage());
+		}
+		// ExEnd:removeSelectiveChartSeries
+    }
+
+	public static void dynamicChartAxisTitle() {
+		// ExStart:dynamicChartAxisTitle
+		String srcDocument = "/Word Templates/Chart with Filtering, Grouping, and Ordering_dynamic_title.docx";
+		String docReport = "/Word Reports/Chart with Filtering, Grouping, and Ordering_dynamic_title.docx";
+		try {
+			DocumentAssembler assembler = new DocumentAssembler();
+			String title = "Total Order Quantity by Quarters";
+			assembler.assembleDocument(CommonUtilities.getDataPath(srcDocument),
+					CommonUtilities.getOutPath(docReport), new Object[]{new DataStorage(), title}, new String[]{"orders", "title"});
+		} catch (Exception exp) {
+			System.out.println("Exception: " + exp.getMessage());
+		}
+		// ExEnd:dynamicChartAxisTitle
+	}
+
+	public static void dynamicColor() {
+		// ExStart:dynamicChartAxisTitle
+		String srcDocument = "/Word Templates/In-Table List_BackgroundColor.docx";
+		String docReport = "/Word Reports/In-Table List_BackgroundColor.docx";
+		try {
+			DocumentAssembler assembler = new DocumentAssembler();
+			String color = "red";
+			assembler.assembleDocument(CommonUtilities.getDataPath(srcDocument),
+					CommonUtilities.getOutPath(docReport), new Object[]{new DataStorage(), color}, new String[]{"orders", "color"});
+		} catch (Exception exp) {
+			System.out.println("Exception: " + exp.getMessage());
+		}
+		// ExEnd:dynamicChartAxisTitle
+	}
+
+	public static void dynamicChartAxisTitlePPt() {
+		// ExStart:dynamicChartAxisTitlePPt
+		String srcDocument = "\\Presentation Templates\\Chart with Filtering, Grouping, and Ordering_Dynamic_Title.pptx";
+		String docReport = "\\Presentation Reports\\Chart with Filtering, Grouping, and Ordering_Dynamic_Title.pptx";
+		try {
+			DocumentAssembler assembler = new DocumentAssembler();
+			String title = "Total Order Quantity by Quarters";
+			assembler.assembleDocument(CommonUtilities.getDataPath(srcDocument),
+					CommonUtilities.getOutPath(docReport), new Object[]{new DataStorage(), title}, new String[]{"orders", "title"});
+		} catch (Exception exp) {
+			System.out.println("Exception: " + exp.getMessage());
+		}
+		// ExEnd:dynamicChartAxisTitlePPt
+	}
+
+	public static void dynamicChartAxisTitleSpreadSheet() {
+		// ExStart:dynamicChartAxisTitleSpreadSheet
+		String srcDocument = "\\Spreadsheet Templates\\Chart with Filtering, Grouping, and Ordering_Dynamic_Title.xlsx";
+		String docReport = "\\Spreadsheet Reports\\Chart with Filtering, Grouping, and Ordering_Dynamic_Title.xlsx";
+		try {
+			DocumentAssembler assembler = new DocumentAssembler();
+			String title = "Total Order Quantity by Quarters";
+			assembler.assembleDocument(CommonUtilities.getDataPath(srcDocument),
+					CommonUtilities.getOutPath(docReport), new Object[]{new DataStorage(), title}, new String[]{"orders", "title"});
+		} catch (Exception exp) {
+			System.out.println("Exception: " + exp.getMessage());
+		}
+		// ExEnd:dynamicChartAxisTitleSpreadSheet
+	}
+
+	public static void dynamicChartAxisTitleEmail() {
+		// ExStart:dynamicChartAxisTitleEmail
+		String srcDocument = "\\Email Templates\\Chart with Filtering, Grouping, and Ordering.msg";
+		String docReport = "\\Email Reports\\Chart with Filtering, Grouping, and Ordering_report.msg";
+		try{
+			String title = "Total Order Quantity by Quarters";
+			Object[] getDataSourceDetails = DataStorage.emailDataSourceObject("Chart with Filtering, Grouping, and Ordering.msg", ".msg",title );
+			String[] dataSourceNames = DataStorage.emailDataSourceName(".msg", title);
+			DocumentAssembler assembler = new DocumentAssembler();
+			assembler.assembleDocument(CommonUtilities.getDataPath(srcDocument),
+					CommonUtilities.getOutPath(docReport), getDataSourceDetails,
+					dataSourceNames);
+		}catch ( Exception exp){
+			System.out.println("Exception: " + exp.getMessage());
+		}
+
+		// ExEnd:dynamicChartAxisTitleEmail
+	}
 }
